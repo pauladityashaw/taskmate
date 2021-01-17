@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+<title> Edit Task - TaskMate</title>
+{% endblock title %}
+
+{% block content %}
+    <br>
+    <div class="container">
+    {% if task_obj.manager == request.user %}
+        <form method="POST" class="row">
+            {% csrf_token %}
+            <input type="text" class="form-control col-lg-6" name="task" value="{{ task_obj.task }}"><! -- the name="task" is very important for view to recognize the task to update!!--> 
+            <input type="hidden" name="done" value="{{ task_obj.done }}"><! -- the name="done" tells which field in the model to update and the value attribute tells the field to update it to the value attribute!!--> 
+            <button type="submit" class="btn btn-primary col-lg-2">Edit Task!</button>
+        </form>
+    {% else %}
+        <h3>Restricted Area</h3>
+    {% endif %}
+    </div>
+{% endblock content %}

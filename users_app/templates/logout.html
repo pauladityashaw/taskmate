@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title> Login - TaskMate</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        {% comment %} {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %} {% endcomment %}
+        <a href="{% url 'login' %}"<button type="submit">Login Again?</button></a>
+    </div> 
+{% endblock content %}
